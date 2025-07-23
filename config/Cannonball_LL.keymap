@@ -37,7 +37,6 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc MOVE_Y(20)>, <&msc MOVE_Y(-20)>;
-            // tap-ms下限メモ Yの値で可変: Y(15) <81>, Y(20) <65>, Y(25) <49>
             tap-ms = <65>;
         };
 
@@ -46,7 +45,6 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc MOVE_X(20)>, <&msc MOVE_X(-20)>;
-            // tap-ms下限メモ Xの値で可変: X(15) <81>, X(20) <65>, X(25) <49>
             tap-ms = <65>;
         };
     };
@@ -56,12 +54,12 @@
         compatible = "zmk,keymap";
 
         // WINDOWS用
-    	DEFAULT_WIN {
+        DEFAULT_WIN {
             bindings = <
                 // Key
                 &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
                 &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
-                &mkp 1   &kp TAB    &kp LS(TAB)  &kp RET
+                &mkp 1     &kp TAB     &kp LS(TAB)  &kp RET
                 // Mouse
                 &kp LC(C) &kp LC(V)
                 // Stick
@@ -73,17 +71,17 @@
                 &kp F1 &kp F2 &kp F3 &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
-    	    >;
+            >;
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
-    	};
+        };
 
-        // MacOS用
-    	DEFAULT_MAC {
+        // MacOS用（LCMD C を &kp O に変更）
+        DEFAULT_MAC {
             bindings = <
                 // Key
-                &mkp MB2   &kp LGUI   &kp LSHFT    &mt LCMD C
+                &mkp MB2   &kp LGUI   &kp LSHFT    &kp O
                 &mkp MB3   &mo SCROLL &kp LG(N0)   &kp DEL
-                &mkp N7   &kp TAB    &kp LS(TAB)  &kp RET
+                &mkp N7    &kp TAB    &kp LS(TAB)  &kp RET
                 // Mouse
                 &kp LG(C) &kp LG(V)
                 // Stick
@@ -95,9 +93,9 @@
                 &kp F1 &kp F2 &kp F3 &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
-    	    >;
+            >;
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
-    	};
+        };
 
         // BT設定、スクロールレイヤー
         SETTINGS {
@@ -117,8 +115,9 @@
                 &none &none &none &none
                 // Back
                 &bt BT_CLR_ALL &bt BT_CLR
-    	    >;
+            >;
             sensor-bindings = <&rot_kp LEFT RIGHT>, <&scroll_move_y>, <&scroll_move_x>;
-    	};
+        };
     };
 };
+
