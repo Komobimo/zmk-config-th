@@ -29,8 +29,8 @@ jobs:
           west build -s zmk/app -d build/left -b seeeduino_xiao_ble -- -DSHIELD=cannonball_ll_left
           west build -s zmk/app -d build/right -b seeeduino_xiao_ble -- -DSHIELD=cannonball_ll_right
 
-      - name: Upload firmware artifacts
-        uses: actions/upload-artifact@v3
+- name: Upload firmware artifacts
+  uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: |
