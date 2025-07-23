@@ -79,11 +79,11 @@
         DEFAULT_MAC {
             bindings = <
                 // Key
-                &mkp MB2   &kp LGUI   &kp LSHFT    &kp O
+                &mkp MB2   &kp LGUI   &kp LSHFT    &kp N9
                 &mkp MB3   &mo SCROLL &kp LG(N0)   &kp DEL
                 &mkp N7    &kp TAB    &kp LS(TAB)  &kp RET
                 // Mouse
-                &kp LG(C) &kp LG(V)
+                &kp LG(C) &kp LG(F)
                 // Stick
                 &kp LS(LG(T)) &kp LS(LC(TAB)) &kp LG(W) &kp LC(TAB)
                 // Lever
