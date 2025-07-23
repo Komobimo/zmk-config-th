@@ -75,11 +75,11 @@
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
         };
 
-        // MacOS用（LCMD C を &kp O に変更）
+        // MacOS用（N9 を N7 に変更）
         DEFAULT_MAC {
             bindings = <
                 // Key
-                &mkp MB2   &kp LGUI   &kp LSHFT    &kp N9
+                &mkp MB2   &kp LGUI   &kp LSHFT    &kp N7
                 &mkp MB3   &mo SCROLL &kp LG(N0)   &kp DEL
                 &mkp N7    &kp TAB    &kp LS(TAB)  &kp RET
                 // Mouse
@@ -120,4 +120,3 @@
         };
     };
 };
-
