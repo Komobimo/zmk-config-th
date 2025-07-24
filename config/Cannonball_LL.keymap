@@ -10,29 +10,26 @@
 
 / {
     /* Behaviors */
-    // スクロール設定
     msc {
-        acceleration-exponent = <0>;      // 0
-        time-to-max-speed-ms = <200>;     // 300
-        delay-ms = <5>;                   // 10
+        acceleration-exponent = <0>;
+        time-to-max-speed-ms = <200>;
+        delay-ms = <5>;
     };
+
     behaviors {
-        // エンコーダー：キー
         rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
 
-        // エンコーダー：マウススクロール 
         rot_msc: sensor_rotate_msc {
-             compatible = "zmk,behavior-sensor-rotate-var";
-             #sensor-binding-cells = <2>;
-             tap-ms = <20>;
-             bindings = <&msc>, <&msc>;
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            tap-ms = <20>;
+            bindings = <&msc>, <&msc>;
         };
 
-        // エンコーダー：マウススクロール(MOVE_Y)
         scroll_move_y: sensor_rotate_msc_for_move_y {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -40,7 +37,6 @@
             tap-ms = <65>;
         };
 
-        // エンコーダー：マウススクロール(MOVE_X)
         scroll_move_x: sensor_rotate_msc_for_move_x {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -49,16 +45,14 @@
         };
     };
 
-    /* キーマップ */
     keymap {
         compatible = "zmk,keymap";
 
-        // WINDOWS用
         DEFAULT_WIN {
             bindings = <
                 // Key
                 &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
-                &mkp MB3   &mo SCROLL &kp LC(N0)   &kp DEL
+                &mkp MB3   &mo SCROLL  &kp LC(N0)   &kp DEL
                 &mkp 1     &kp TAB     &kp LS(TAB)  &kp RET
                 // Mouse
                 &kp LC(C) &kp LC(V)
@@ -67,15 +61,14 @@
                 // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
-                // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
+                // Side（F1でMacに切り替える）
+                &to DEFAULT_MAC &kp F2 &kp F3 &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
             >;
             sensor-bindings = <&rot_kp LG(Z) LS(LG(Z))>, <&scroll_move_y>, <&rot_kp LG(PLUS) LG(MINUS)>;
         };
 
-        // MacOS用（N9 を N7 に変更）
         DEFAULT_MAC {
             bindings = <
                 // Key
@@ -89,18 +82,16 @@
                 // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
-                // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
+                // Side（F1でWindowsに戻す）
+                &to DEFAULT_WIN &kp F2 &kp F3 &kp F4
                 // Back
                 &bt BT_SEL 0 &bt BT_SEL 1
             >;
-            sensor-bindings = <&rot_kp MINUS LS(N6)>, <&scroll_move_y>, <&rot_kp LS(COMMA) LS(DOT)>;   
+            sensor-bindings = <&rot_kp MINUS LS(N6)>, <&scroll_move_y>, <&rot_kp LS(COMMA) LS(DOT)>;
         };
 
-        // BT設定、スクロールレイヤー
         SETTINGS {
             bindings = <
-                // Key
                 &none &none &none &none
                 &none &mo SCROLL &none &none
                 &none &none &none &none
@@ -120,3 +111,4 @@
         };
     };
 };
+
