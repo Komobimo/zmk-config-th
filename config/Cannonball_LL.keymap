@@ -90,11 +90,12 @@
                 // Back
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
-            sensor-bindings = <
-                &rot_kp LS(SCLN) SCLN     // キャンバス回転: ⌘; / ;
-                &scroll_move_y
-                &rot_kp LBKT RBKT         // ブラシサイズ変更: [ / ]
-            >;
+sensor-bindings = <
+    &rot_kp LS(SCLN) LS(6)     // キャンバス回転: ; と ^
+    &scroll_move_y
+    &rot_kp LBKT RBKT          // ブラシサイズ変更: [ / ]
+>;
+
         };
 
         SETTINGS {
