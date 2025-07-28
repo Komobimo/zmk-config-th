@@ -61,7 +61,7 @@
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
             sensor-bindings = <
-                &rot_kp &kp S &kp A
+                &rot_kp &kp A &kp S
                 &scroll_move_y
                 &rot_kp LBKT RBKT
             >;
@@ -80,7 +80,7 @@
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
             sensor-bindings = <
-                &rot_kp &kp S &kp A
+                &rot_kp &kp A &kp S
                 &scroll_move_y
                 &rot_kp LBKT RBKT
             >;
@@ -106,4 +106,5 @@
         };
     };
 };
+
 
