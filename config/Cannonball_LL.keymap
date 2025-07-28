@@ -92,7 +92,7 @@
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
                 // Side
-                &kp F1 &kp F2 &kp F3 &kp F4
+&to DEFAULT_MAC &kp F2 &kp F3 &kp F4
                 // Back
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
