@@ -15,7 +15,6 @@
         time-to-max-speed-ms = <200>;
         delay-ms = <5>;
     };
-
     behaviors {
         rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
@@ -50,39 +49,51 @@
 
         DEFAULT_WIN {
             bindings = <
+                // Key
                 &mkp MB2   &kp LCTRL   &kp LSHFT    &kp BSPC
                 &mkp MB3   &mo SCROLL  &kp LC(N0)   &kp DEL
                 &mkp MB1   &kp TAB     &kp LS(TAB)  &kp RET
-                &kp LC(C)  &kp LC(V)
+                // Mouse
+                &kp LC(C) &kp LC(V)
+                // Stick
                 &kp LS(LC(T)) &kp LS(LC(TAB)) &kp LC(W) &kp LC(TAB)
+                // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
+                // Side
                 &to DEFAULT_MAC &kp F2 &kp F3 &kp F4
+                // Back
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
             sensor-bindings = <
                 &rot_kp &kp A &kp S
                 &scroll_move_y
-                &rot_kp LBKT RBKT
+                &rot_kp LG(PLUS) LG(MINUS)
             >;
         };
 
         DEFAULT_MAC {
             bindings = <
+                // Key
                 &mkp MB2   &kp I        &kp LG(S)    &kp LG(N)
                 &kp B      &mo SCROLL   &kp LG(N0)   &kp LG(C)
                 &mkp MB1   &kp LG(Z)    &kp LG(Y)    &kp LG(V)
-                &kp LG(C)  &kp LG(V)
+                // Mouse
+                &kp LG(C) &kp LG(V)
+                // Stick
                 &kp LS(LG(T)) &kp LS(LC(TAB)) &kp LG(W) &kp LC(TAB)
+                // Lever
                 &to DEFAULT_WIN &kp F11 &to DEFAULT_MAC
                 &to DEFAULT_WIN &kp F12 &to DEFAULT_MAC
+                // Side
                 &kp F1 &kp F2 &kp F3 &kp F4
+                // Back
                 &to DEFAULT_MAC &bt BT_SEL 1
             >;
             sensor-bindings = <
-                &rot_kp &kp A &kp S
+                &rot_kp &kp A &kp S     // キャンバス回転: A / S
                 &scroll_move_y
-                &rot_kp LBKT RBKT
+                &rot_kp LBKT RBKT       // ブラシサイズ変更: [ / ]
             >;
         };
 
@@ -91,11 +102,16 @@
                 &none &none &none &none
                 &none &mo SCROLL &none &none
                 &none &none &none &none
+                // Mouse
                 &none &none
+                // Stick
                 &none &none &none &none
+                // Lever
                 &none &none &none
                 &none &none &none
+                // Side
                 &none &none &none &none
+                // Back
                 &bt BT_CLR_ALL &bt BT_CLR
             >;
             sensor-bindings = <
@@ -106,5 +122,4 @@
         };
     };
 };
-
 
